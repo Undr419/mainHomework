@@ -1,0 +1,41 @@
+### Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+### VS Code ###
+.vscode/
+
+### Logs ###
+*.log
+
+### OS Files ###
+.DS_Store
+Thumbs.db
+
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+
+### Temporary files ###
+*.tmp
+*.swp
+*.swo
+
+### Spring Boot ###
+spring.log
+
+### Test Containers (кеш) ###
+testcontainers.properties
+
+### Windows ###
+*.bat~
