@@ -22,15 +22,15 @@ public class UserEventsListener {
     public void handleUserEvent(UserEvent event) {
         log.info("Received user event: {}", event);
 
-        if (event.getOperation() == null || event.getEmail() == null) {
+        if (event.operation() == null || event.email() == null) {
             log.warn("Invalid event: {}", event);
             return;
         }
 
-        switch (event.getOperation()) {
-            case "CREATE" -> mailService.sendAccountCreated(event.getEmail());
-            case "DELETE" -> mailService.sendAccountDeleted(event.getEmail());
-            default -> log.warn("Unknown operation: {}", event.getOperation());
+        switch (event.operation()) {
+            case "CREATE" -> mailService.sendAccountCreated(event.email());
+            case "DELETE" -> mailService.sendAccountDeleted(event.email());
+            default -> log.warn("Unknown operation: {}", event.operation());
         }
     }
 }
