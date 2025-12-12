@@ -27,11 +27,14 @@ public class UserEventsListener {
             return;
         }
 
-        switch (event.operation()) {
-            case "CREATE" -> mailService.sendAccountCreated(event.email());
-            case "DELETE" -> mailService.sendAccountDeleted(event.email());
-            default -> log.warn("Unknown operation: {}", event.operation());
+        try {
+            switch (event.operation()) {
+                case "CREATE" -> mailService.sendAccountCreated(event.email());
+                case "DELETE" -> mailService.sendAccountDeleted(event.email());
+                default -> log.warn("Unknown operation: {}", event.operation());
+            }
+        } catch (Exception e) {
+            log.error("Failed to process event: {}", event, e);
         }
     }
 }
-
