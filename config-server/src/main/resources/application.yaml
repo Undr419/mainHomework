@@ -4,10 +4,14 @@ server:
 spring:
   application:
     name: config-server
-  profiles:
-    active: native
   cloud:
     config:
       server:
         native:
-          search-locations: file:./config-repo
+          search-locations: file:/config
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

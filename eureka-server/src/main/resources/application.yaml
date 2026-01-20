@@ -3,9 +3,15 @@ server:
 
 spring:
   application:
-    name: discovery-server
+    name: eureka-server
 
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
